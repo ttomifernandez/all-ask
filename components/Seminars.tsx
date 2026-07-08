@@ -13,16 +13,18 @@ import {
 export const SEMINARS = [
   {
     id: 1,
-    title: 'Know How',
-    subtitle: 'Centro de estética',
+    title: 'Know How para crear tu propio centro de estética',
+    subtitle: '',
     icon: Sparkles,
+    bg: 'bg-green-50 border-green-100',
     description: 'Todo lo que necesitás saber para emprender o crecer en el mundo de la estética profesional.',
   },
   {
     id: 2,
-    title: 'Know How',
-    subtitle: 'Instituto de idiomas',
+    title: 'Know How para crear tu propio instituto de idiomas',
+    subtitle: '',
     icon: BookOpen,
+    bg: 'bg-emerald-50 border-emerald-100',
     description: 'Cómo crear y escalar un instituto de idiomas desde la experiencia de quien ya lo hizo.',
   },
   {
@@ -30,6 +32,7 @@ export const SEMINARS = [
     title: 'Estrategias para lograr tu primer empleo',
     subtitle: 'CV · entrevistas · dónde buscar',
     icon: Briefcase,
+    bg: 'bg-slate-50 border-slate-100',
     description: 'El camino real hacia tu primer trabajo: cómo armar un CV que funcione, prepararte para entrevistas y dónde buscar.',
   },
   {
@@ -37,6 +40,7 @@ export const SEMINARS = [
     title: '¿Qué son las ventas?',
     subtitle: '¿Es para mí?',
     icon: TrendingUp,
+    bg: 'bg-teal-50 border-teal-100',
     description: 'Descubrí si el mundo de las ventas es tu lugar y qué habilidades necesitás para empezar.',
   },
   {
@@ -44,6 +48,7 @@ export const SEMINARS = [
     title: 'Claves para viajar y trabajar por el mundo',
     subtitle: 'Turismo · trabajo remoto · experiencias',
     icon: Globe,
+    bg: 'bg-gray-50 border-gray-100',
     description: 'Estrategias reales para financiar viajes, trabajar desde cualquier lugar y vivir experiencias únicas.',
   },
   {
@@ -51,6 +56,7 @@ export const SEMINARS = [
     title: 'Salud mental y consumos',
     subtitle: 'Señales, recursos y pasos a seguir',
     icon: Heart,
+    bg: 'bg-lime-50 border-lime-100',
     description: 'Cómo identificar señales de alerta en salud mental y consumos, cuándo buscar ayuda y qué recursos existen.',
   },
   {
@@ -58,6 +64,7 @@ export const SEMINARS = [
     title: 'Quiero comer bien',
     subtitle: 'Nutrición según tus gustos',
     icon: Leaf,
+    bg: 'bg-green-50 border-green-100',
     description: 'Alimentación saludable sin dietas imposibles. Aprendé a comer bien respetando tus gustos y tu estilo de vida.',
   },
 ]
@@ -123,12 +130,12 @@ export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
                 className={`group text-left rounded-2xl p-6 border-2 transition-all duration-200 w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 ${
                   isSelected
                     ? 'border-brand-500 bg-brand-50 shadow-lg shadow-brand-100'
-                    : 'border-gray-100 bg-white hover:border-brand-200 hover:shadow-md hover:shadow-gray-100 hover:bg-brand-50/40'
+                    : `${seminar.bg} hover:border-brand-300 hover:shadow-md hover:shadow-gray-100`
                 }`}
               >
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors ${
-                    isSelected ? 'bg-brand-600' : 'bg-brand-50 group-hover:bg-brand-100'
+                    isSelected ? 'bg-brand-600' : 'bg-white/70 group-hover:bg-white'
                   }`}
                   aria-hidden="true"
                 >
