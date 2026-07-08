@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-white min-h-screen flex flex-col justify-center"
       aria-label="Inicio"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-50 rounded-full blur-3xl opacity-40" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -69,6 +69,25 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Chevron scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+            className="w-6 h-6 text-brand-400" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
