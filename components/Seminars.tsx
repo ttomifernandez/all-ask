@@ -85,16 +85,11 @@ const fadeUp = {
   }),
 }
 
-interface SeminarsProps {
-  selectedId: number | null
-  onSelect: (id: number) => void
-}
-
-export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
+export default function Seminars() {
   return (
     <section
       id="seminarios"
-      className="py-24 bg-white"
+      className="py-24 bg-gray-50"
       aria-labelledby="seminars-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,32 +110,24 @@ export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
             Nuestros seminarios
           </h2>
           <p className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
-            Elegí el tema que más te interesa y consultá directo con nosotros.
+            7 temáticas diseñadas por expertos que ya recorrieron ese camino.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SEMINARS.map((seminar, i) => {
             const Icon = seminar.icon
-            const isSelected = selectedId === seminar.id
             const isLight = seminar.text === 'light'
 
             return (
-              <motion.button
+              <motion.div
                 key={seminar.id}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-40px' }}
                 variants={fadeUp}
                 custom={i}
-                onClick={() => onSelect(seminar.id)}
-                aria-pressed={isSelected}
-                aria-label={`Seleccionar seminario: ${seminar.title}${seminar.subtitle ? ` — ${seminar.subtitle}` : ''}`}
-                className={`group text-left rounded-2xl p-6 border-2 transition-all duration-200 w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ${seminar.bg} ${
-                  isSelected
-                    ? 'border-white shadow-xl scale-[1.02]'
-                    : 'border-transparent hover:scale-[1.02] hover:shadow-xl'
-                }`}
+                className={`rounded-2xl p-6 ${seminar.bg}`}
               >
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-white/20"
@@ -168,23 +155,12 @@ export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
                   </p>
                 )}
 
-                <p className={`text-xs leading-relaxed line-clamp-3 ${
+                <p className={`text-xs leading-relaxed mt-2 ${
                   isLight ? 'text-white/80' : 'text-gray-800'
                 }`}>
                   {seminar.description}
                 </p>
-
-                {isSelected && (
-                  <div className={`mt-3 inline-flex items-center gap-1 text-[11px] font-semibold ${
-                    isLight ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
-                      <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.463-6.695a.75.75 0 0 1 1.07-.252Z" clipRule="evenodd" />
-                    </svg>
-                    Seleccionado
-                  </div>
-                )}
-              </motion.button>
+              </motion.div>
             )
           })}
         </div>
