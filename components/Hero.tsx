@@ -41,7 +41,7 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.13 }}
             className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-tight"
           >
-            Un experto te enseña el camino
+            Expertos que te enseñan el camino
           </motion.h1>
 
           <motion.p
