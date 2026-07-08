@@ -1,17 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MessageCircle, CheckCircle } from 'lucide-react'
 import { SEMINARS } from './Seminars'
 
 const WA_NUMBER = '5493512125261'
 
-interface ContactFormProps {
-  selectedSeminarId: number | null
-  onSeminarChange: (id: number | null) => void
-}
-
-export default function ContactForm({ selectedSeminarId, onSeminarChange }: ContactFormProps) {
+export default function ContactForm() {
   const [form, setForm] = useState({
     nombre: '',
     email: '',
@@ -21,24 +16,10 @@ export default function ContactForm({ selectedSeminarId, onSeminarChange }: Cont
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [sent, setSent] = useState(false)
 
-  // Sincronizar seminario seleccionado desde las cards
-  useEffect(() => {
-    if (selectedSeminarId !== null) {
-      const s = SEMINARS.find(x => x.id === selectedSeminarId)
-      if (s) {
-        const label = s.subtitle ? `${s.title} — ${s.subtitle}` : s.title
-        setForm(prev => ({ ...prev, seminario: label }))
-      }
-    }
-  }, [selectedSeminarId])
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setForm(prev => ({ ...prev, [name]: value }))
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }))
-
-    // Si cambia el seminario desde el select, resetear selección de cards
-    if (name === 'seminario') onSeminarChange(null)
   }
 
   const validate = (): boolean => {
@@ -274,7 +255,7 @@ export default function ContactForm({ selectedSeminarId, onSeminarChange }: Cont
                   <option value="No sé cuál elegir">No sé cuál elegir, quiero orientación</option>
                 </select>
                 <p id="seminario-hint" className="mt-1.5 text-xs text-gray-400">
-                  También podés seleccionarlo directamente en las cards de arriba.
+                  Opcional — si todavía no sabés cuál elegir, también podemos orientarte.
                 </p>
               </div>
 
