@@ -110,7 +110,7 @@ export default function Seminars() {
             Nuestros seminarios
           </h2>
           <p className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
-            Estas son algunas de las temáticas que tenemos, porque luego se agregarán más
+            Estas son algunas de las temáticas que tenemos, diseñadas por expertos que ya recorrieron ese camino.
           </p>
         </motion.div>
 
