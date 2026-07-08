@@ -16,7 +16,8 @@ export const SEMINARS = [
     title: 'Know How para crear tu propio centro de estética',
     subtitle: '',
     icon: Sparkles,
-    bg: 'bg-green-50 border-green-100',
+    bg: 'bg-rose-500',
+    text: 'light',
     description: 'Todo lo que necesitás saber para emprender o crecer en el mundo de la estética profesional.',
   },
   {
@@ -24,7 +25,8 @@ export const SEMINARS = [
     title: 'Know How para crear tu propio instituto de idiomas',
     subtitle: '',
     icon: BookOpen,
-    bg: 'bg-emerald-50 border-emerald-100',
+    bg: 'bg-blue-600',
+    text: 'light',
     description: 'Cómo crear y escalar un instituto de idiomas desde la experiencia de quien ya lo hizo.',
   },
   {
@@ -32,7 +34,8 @@ export const SEMINARS = [
     title: 'Estrategias para lograr tu primer empleo',
     subtitle: 'CV · entrevistas · dónde buscar',
     icon: Briefcase,
-    bg: 'bg-slate-50 border-slate-100',
+    bg: 'bg-amber-400',
+    text: 'dark',
     description: 'El camino real hacia tu primer trabajo: cómo armar un CV que funcione, prepararte para entrevistas y dónde buscar.',
   },
   {
@@ -40,7 +43,8 @@ export const SEMINARS = [
     title: '¿Qué son las ventas?',
     subtitle: '¿Es para mí?',
     icon: TrendingUp,
-    bg: 'bg-teal-50 border-teal-100',
+    bg: 'bg-violet-600',
+    text: 'light',
     description: 'Descubrí si el mundo de las ventas es tu lugar y qué habilidades necesitás para empezar.',
   },
   {
@@ -48,7 +52,8 @@ export const SEMINARS = [
     title: 'Claves para viajar y trabajar por el mundo',
     subtitle: 'Turismo · trabajo remoto · experiencias',
     icon: Globe,
-    bg: 'bg-gray-50 border-gray-100',
+    bg: 'bg-emerald-500',
+    text: 'light',
     description: 'Estrategias reales para financiar viajes, trabajar desde cualquier lugar y vivir experiencias únicas.',
   },
   {
@@ -56,7 +61,8 @@ export const SEMINARS = [
     title: 'Salud mental y consumos',
     subtitle: 'Señales, recursos y pasos a seguir',
     icon: Heart,
-    bg: 'bg-lime-50 border-lime-100',
+    bg: 'bg-orange-500',
+    text: 'light',
     description: 'Cómo identificar señales de alerta en salud mental y consumos, cuándo buscar ayuda y qué recursos existen.',
   },
   {
@@ -64,7 +70,8 @@ export const SEMINARS = [
     title: 'Quiero comer bien',
     subtitle: 'Nutrición según tus gustos',
     icon: Leaf,
-    bg: 'bg-green-50 border-green-100',
+    bg: 'bg-cyan-500',
+    text: 'dark',
     description: 'Alimentación saludable sin dietas imposibles. Aprendé a comer bien respetando tus gustos y tu estilo de vida.',
   },
 ]
@@ -116,6 +123,8 @@ export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
           {SEMINARS.map((seminar, i) => {
             const Icon = seminar.icon
             const isSelected = selectedId === seminar.id
+            const isLight = seminar.text === 'light'
+
             return (
               <motion.button
                 key={seminar.id}
@@ -127,38 +136,48 @@ export default function Seminars({ selectedId, onSelect }: SeminarsProps) {
                 onClick={() => onSelect(seminar.id)}
                 aria-pressed={isSelected}
                 aria-label={`Seleccionar seminario: ${seminar.title}${seminar.subtitle ? ` — ${seminar.subtitle}` : ''}`}
-                className={`group text-left rounded-2xl p-6 border-2 transition-all duration-200 w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 ${
+                className={`group text-left rounded-2xl p-6 border-2 transition-all duration-200 w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ${seminar.bg} ${
                   isSelected
-                    ? 'border-brand-500 bg-brand-50 shadow-lg shadow-brand-100'
-                    : `${seminar.bg} hover:border-brand-300 hover:shadow-md hover:shadow-gray-100`
+                    ? 'border-white shadow-xl scale-[1.02]'
+                    : 'border-transparent hover:scale-[1.02] hover:shadow-xl'
                 }`}
               >
                 <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors ${
-                    isSelected ? 'bg-brand-600' : 'bg-white/70 group-hover:bg-white'
-                  }`}
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-white/20"
                   aria-hidden="true"
                 >
                   <Icon
                     size={20}
-                    className={isSelected ? 'text-white' : 'text-brand-600'}
+                    className={isLight ? 'text-white' : 'text-gray-800'}
                   />
                 </div>
+
                 <h3
-                  className={`font-bold text-sm mb-1 leading-snug transition-colors ${
-                    isSelected ? 'text-brand-700' : 'text-gray-900 group-hover:text-brand-700'
+                  className={`font-bold text-sm mb-1 leading-snug ${
+                    isLight ? 'text-white' : 'text-gray-900'
                   }`}
                 >
                   {seminar.title}
                 </h3>
+
                 {seminar.subtitle && (
-                  <p className="text-xs text-gray-400 font-medium mb-3">{seminar.subtitle}</p>
+                  <p className={`text-xs font-medium mb-3 ${
+                    isLight ? 'text-white/70' : 'text-gray-700'
+                  }`}>
+                    {seminar.subtitle}
+                  </p>
                 )}
-                <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">
+
+                <p className={`text-xs leading-relaxed line-clamp-3 ${
+                  isLight ? 'text-white/80' : 'text-gray-800'
+                }`}>
                   {seminar.description}
                 </p>
+
                 {isSelected && (
-                  <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-600">
+                  <div className={`mt-3 inline-flex items-center gap-1 text-[11px] font-semibold ${
+                    isLight ? 'text-white' : 'text-gray-900'
+                  }`}>
                     <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
                       <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.463-6.695a.75.75 0 0 1 1.07-.252Z" clipRule="evenodd" />
                     </svg>
