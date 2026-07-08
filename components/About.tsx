@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Users, BookOpen, Zap, Lightbulb, ShieldCheck, ArrowRight } from 'lucide-react'
 
@@ -58,32 +59,51 @@ export default function About() {
       aria-labelledby="about-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={fadeUp}
-          custom={0}
-          className="text-center mb-12"
-        >
-          <span className="text-brand-600 text-sm font-semibold tracking-wide uppercase">
-            ¿Qué es All Ask?
-          </span>
-          <h2
-            id="about-heading"
-            className="mt-3 text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+        {/* 2 columnas: texto izq + foto der */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            custom={0}
           >
-            Aprendé directamente de quienes
-            <br className="hidden sm:block" />
-            <span className="text-brand-600"> ya lo lograron</span>
-          </h2>
-          <p className="mt-5 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            All Ask Comunidad Educativa conecta a personas con expertos que comparten su experiencia real en
-            seminarios online. Sin relleno, sin teoría vacía — solo el conocimiento que
-            necesitás para dar el próximo paso.
-          </p>
-        </motion.div>
+            <span className="text-brand-600 text-sm font-semibold tracking-wide uppercase">
+              ¿Qué es All Ask?
+            </span>
+            <h2
+              id="about-heading"
+              className="mt-3 text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+            >
+              Aprendé directamente de quienes
+              <br className="hidden sm:block" />
+              <span className="text-brand-600"> ya lo lograron</span>
+            </h2>
+            <p className="mt-5 text-lg text-gray-500 leading-relaxed">
+              All Ask Comunidad Educativa conecta a personas con expertos que comparten su experiencia real en
+              seminarios online. Sin relleno, sin teoría vacía — solo el conocimiento que
+              necesitás para dar el próximo paso.
+            </p>
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+            className="rounded-2xl overflow-hidden shadow-xl"
+          >
+            <Image
+              src="/images/exec.webp"
+              alt="Ejecutivo All Ask Comunidad Educativa"
+              width={1576}
+              height={678}
+              className="w-full object-cover"
+            />
+          </motion.div>
+        </div>
+
+        {/* 6 cards debajo */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((c, i) => (
             <motion.div
