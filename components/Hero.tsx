@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Sparkles, BookOpen, Briefcase, TrendingUp, Globe, Heart, Leaf } from 'lucide-react'
 
@@ -19,18 +20,17 @@ export default function Hero() {
       className="relative overflow-hidden bg-white"
       aria-label="Inicio"
     >
-      {/* Fondo sutil */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-brand-50 rounded-full blur-3xl opacity-60" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-50 rounded-full blur-3xl opacity-40" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 sm:pt-28 sm:pb-16">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0 sm:pt-28">
+        {/* Fila superior: texto izq + panel seminarios der */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center pb-12 sm:pb-16">
 
-          {/* ── Columna izquierda: texto ── */}
+          {/* Columna izquierda: texto */}
           <div className="text-center lg:text-left">
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,6 @@ export default function Hero() {
               Seminarios online con expertos reales
             </motion.div>
 
-            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,7 +51,6 @@ export default function Hero() {
               <span className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-brand-800 leading-none">ASK</span>
             </motion.div>
 
-            {/* Tagline */}
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,7 +60,6 @@ export default function Hero() {
               Un experto te enseña el camino
             </motion.h1>
 
-            {/* Subtítulo */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,29 +70,22 @@ export default function Hero() {
               Sin teoría vacía, solo experiencia real.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.24 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <a
-                href="#seminarios"
-                className="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-brand-700 transition-all hover:shadow-lg hover:shadow-brand-200 active:scale-95"
-              >
+              <a href="#seminarios" className="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-brand-700 transition-all hover:shadow-lg hover:shadow-brand-200 active:scale-95">
                 Ver seminarios
               </a>
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-semibold px-7 py-3.5 rounded-xl border-2 border-brand-200 hover:border-brand-400 hover:bg-brand-50 transition-all active:scale-95"
-              >
+              <a href="#contacto" className="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-semibold px-7 py-3.5 rounded-xl border-2 border-brand-200 hover:border-brand-400 hover:bg-brand-50 transition-all active:scale-95">
                 Consultar ahora
               </a>
             </motion.div>
           </div>
 
-          {/* ── Columna derecha: panel de temáticas ── */}
+          {/* Columna derecha: panel seminarios */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
@@ -123,8 +113,25 @@ export default function Hero() {
               ))}
             </div>
           </motion.div>
-
         </div>
+
+        {/* Imagen hero — borde superior redondeado, sin borde inferior */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.35 }}
+          className="relative rounded-t-3xl overflow-hidden shadow-2xl shadow-gray-200 max-w-5xl mx-auto"
+        >
+          <Image
+            src="/images/hero.webp"
+            alt="All Ask Comunidad Educativa — seminarios con expertos reales"
+            width={1280}
+            height={714}
+            className="w-full object-cover max-h-[340px] sm:max-h-[420px]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent pointer-events-none" />
+        </motion.div>
       </div>
     </section>
   )
