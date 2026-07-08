@@ -1,7 +1,7 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import ExecPhoto from '@/components/ExecPhoto'
 import Seminars from '@/components/Seminars'
+import ExecPhoto from '@/components/ExecPhoto'
 import About from '@/components/About'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
@@ -12,8 +12,8 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <ExecPhoto />
       <Seminars />
+      <ExecPhoto />
       <About />
       <ContactForm />
       <Footer />
