@@ -118,6 +118,9 @@ export default function Seminars() {
           {SEMINARS.map((seminar, i) => {
             const Icon = seminar.icon
             const isLight = seminar.text === 'light'
+            const total = SEMINARS.length
+            const remainder = total % 3
+            const isOrphan = remainder === 1 && i === total - 1
 
             return (
               <motion.div
@@ -127,7 +130,7 @@ export default function Seminars() {
                 viewport={{ once: true, margin: '-40px' }}
                 variants={fadeUp}
                 custom={i}
-                className={`rounded-2xl p-6 ${seminar.bg}`}
+                className={`rounded-2xl p-6 ${seminar.bg} ${isOrphan ? 'lg:col-span-2' : ''}`}
               >
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-white/20"
