@@ -13,13 +13,13 @@ const cards = [
   {
     icon: BookOpen,
     color: 'bg-brand-50 text-brand-600',
-    title: '7 temáticas',
+    title: 'Variadas temáticas',
     body: 'Desde nutrición y empleo hasta salud mental, viajes y ventas.',
   },
   {
     icon: Zap,
     color: 'bg-brand-50 text-brand-600',
-    title: '100% online',
+    title: '¡En vivo!',
     body: 'Desde donde estés, a tu ritmo, con seguimiento personalizado.',
   },
   {
