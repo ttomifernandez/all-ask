@@ -98,9 +98,9 @@ export default function Hero() {
         >
           <Image
             src="/images/hero.webp"
-            alt="Experto dictando seminario online en All Ask Comunidad Educativa"
-            width={900}
-            height={500}
+            alt="All Ask Comunidad Educativa — seminarios con expertos reales"
+            width={1280}
+            height={714}
             className="w-full object-cover"
             priority
           />
