@@ -1,7 +1,6 @@
 'use client'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Users, BookOpen, Zap } from 'lucide-react'
+import { Users, BookOpen, Zap, Lightbulb, ArrowRight, ShieldCheck } from 'lucide-react'
 
 const features = [
   {
@@ -18,6 +17,27 @@ const features = [
     icon: Zap,
     title: '100% online',
     description: 'Desde donde estés, a tu ritmo, con seguimiento personalizado.',
+  },
+]
+
+const pillars = [
+  {
+    icon: Lightbulb,
+    color: 'bg-amber-50 text-amber-600',
+    title: 'El conocimiento que nadie te enseñó',
+    body: 'Hay decisiones importantes — sobre salud, trabajo, dinero, bienestar — que nadie nos explica. All Ask existe para cerrar esa brecha.',
+  },
+  {
+    icon: ShieldCheck,
+    color: 'bg-brand-50 text-brand-600',
+    title: 'Guía de alguien que ya lo recorrió',
+    body: 'Conectamos con personas que tomaron ese camino antes que vos y pueden guiarte con experiencia real, no con teoría.',
+  },
+  {
+    icon: ArrowRight,
+    color: 'bg-violet-50 text-violet-600',
+    title: 'Herramientas concretas, no relleno',
+    body: 'Cada seminario está diseñado para darte pasos accionables. Elegís el tema que más te interesa y consultás directamente.',
   },
 ]
 
@@ -66,7 +86,7 @@ export default function About() {
         </motion.div>
 
         {/* Features grid */}
-        <div className="grid sm:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-3 gap-8 mb-16">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -86,61 +106,59 @@ export default function About() {
           ))}
         </div>
 
-        {/* Image + copy */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={fadeUp}
-            custom={0}
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/about.webp"
-                alt="Seminario online con experto en All Ask Comunidad Educativa"
-                width={600}
-                height={420}
-                className="w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-900/10 to-transparent" />
-            </div>
-          </motion.div>
+        {/* Pillars — replacing image+text block */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={fadeUp}
+          custom={0}
+          className="text-center mb-8"
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+            El conocimiento que nadie
+            <span className="text-brand-600"> te enseñó</span> en la escuela
+          </h3>
+        </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={fadeUp}
-            custom={1}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
-              El conocimiento que nadie
-              <span className="text-brand-600"> te enseñó</span> en la escuela
-            </h3>
-            <p className="text-gray-500 leading-relaxed">
-              Hay decisiones importantes — sobre salud, trabajo, dinero, bienestar — que
-              nadie nos explica. All Ask existe para cerrar esa brecha, conectándote con
-              alguien que ya tomó ese camino y puede guiarte.
-            </p>
-            <p className="text-gray-500 leading-relaxed">
-              Cada seminario está diseñado para darte herramientas concretas, no teoría.
-              Podés elegir el tema que más te interese y consultar directamente.
-            </p>
-            <a
-              href="#seminarios"
-              className="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700 transition-colors group"
-              aria-label="Ver todos los seminarios disponibles"
+        <div className="grid sm:grid-cols-3 gap-6 mb-10">
+          {pillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-40px' }}
+              variants={fadeUp}
+              custom={i + 1}
+              className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-4"
             >
-              Ver todos los seminarios
-              <span
-                className="transition-transform group-hover:translate-x-1"
-                aria-hidden="true"
-              >→</span>
-            </a>
-          </motion.div>
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${p.color}`}>
+                <p.icon size={22} aria-hidden="true" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-2 leading-snug">{p.title}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{p.body}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={fadeUp}
+          custom={4}
+          className="text-center"
+        >
+          <a
+            href="#seminarios"
+            className="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700 transition-colors group"
+          >
+            Ver todos los seminarios
+            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </a>
+        </motion.div>
       </div>
     </section>
   )
