@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
@@ -14,9 +13,8 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-50 rounded-full blur-3xl opacity-40" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-0">
-        {/* Texto centrado */}
-        <div className="text-center max-w-3xl mx-auto pb-14 sm:pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+        <div className="text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,24 +68,6 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-
-        {/* Imagen hero — borde superior redondeado */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.32 }}
-          className="relative rounded-t-3xl overflow-hidden shadow-2xl shadow-gray-200 max-w-5xl mx-auto"
-        >
-          <Image
-            src="/images/hero.webp"
-            alt="All Ask Comunidad Educativa — seminarios con expertos reales"
-            width={1280}
-            height={714}
-            className="w-full object-cover max-h-[340px] sm:max-h-[440px]"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent pointer-events-none" />
-        </motion.div>
       </div>
     </section>
   )
