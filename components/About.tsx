@@ -55,12 +55,11 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="py-12 bg-gray-50"
+      className="py-12 lg:py-20 bg-white"
       aria-labelledby="about-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 2 columnas: texto izq + foto der */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10 lg:mb-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -103,8 +102,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* 6 cards debajo */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {cards.map((c, i) => (
             <motion.div
               key={c.title}
@@ -113,9 +111,9 @@ export default function About() {
               viewport={{ once: true, margin: '-40px' }}
               variants={fadeUp}
               custom={i + 1}
-              className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-100 transition-all"
+              className="bg-white rounded-2xl p-5 lg:p-7 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-100 transition-all"
             >
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${c.color}`}>
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${c.color}`}>
                 <c.icon size={22} aria-hidden="true" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 leading-snug">{c.title}</h3>

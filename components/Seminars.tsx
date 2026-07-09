@@ -89,7 +89,7 @@ export default function Seminars() {
   return (
     <section
       id="seminarios"
-      className="py-14 bg-gray-50"
+      className="py-12 lg:py-20 bg-gray-50"
       aria-labelledby="seminars-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +98,7 @@ export default function Seminars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
-          className="text-center mb-8"
+          className="text-center mb-8 lg:mb-12"
         >
           <span className="text-brand-600 text-sm font-semibold tracking-wide uppercase">
             Lo que podés aprender
@@ -114,7 +114,7 @@ export default function Seminars() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {SEMINARS.map((seminar, i) => {
             const Icon = seminar.icon
             const isLight = seminar.text === 'light'
@@ -130,10 +130,10 @@ export default function Seminars() {
                 viewport={{ once: true, margin: '-40px' }}
                 variants={fadeUp}
                 custom={i}
-                className={`rounded-2xl p-6 ${seminar.bg} ${isOrphan ? 'lg:col-span-2' : ''}`}
+                className={`rounded-2xl p-5 lg:p-6 ${seminar.bg} ${isOrphan ? 'lg:col-span-2' : ''}`}
               >
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-white/20"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-white/20"
                   aria-hidden="true"
                 >
                   <Icon
@@ -173,7 +173,7 @@ export default function Seminars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
-          className="text-center mt-8"
+          className="text-center mt-10 lg:mt-14"
         >
           <p className="text-gray-500 text-sm mb-4">
             ¿No encontrás lo que buscás? Consultanos igual — podemos orientarte.

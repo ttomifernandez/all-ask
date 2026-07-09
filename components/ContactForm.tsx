@@ -56,7 +56,7 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <section id="contacto" className="py-14 bg-brand-50" aria-labelledby="contact-heading">
+      <section id="contacto" className="py-12 lg:py-20 bg-brand-50" aria-labelledby="contact-heading">
         <div className="max-w-xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -87,10 +87,9 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contacto" className="py-14 bg-brand-50" aria-labelledby="contact-heading">
+    <section id="contacto" className="py-12 lg:py-20 bg-brand-50" aria-labelledby="contact-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Copy izquierdo */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -131,7 +130,6 @@ export default function ContactForm() {
             </div>
           </motion.div>
 
-          {/* Formulario */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -141,13 +139,12 @@ export default function ContactForm() {
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="bg-white rounded-3xl p-8 sm:p-10 shadow-xl border border-gray-100"
+              className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-gray-100"
               aria-label="Formulario de contacto"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-7">Consultá ahora</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-5">Consultá ahora</h3>
 
-              {/* Nombre */}
-              <div className="mb-5">
+              <div className="mb-4">
                 <label htmlFor="nombre" className="block text-sm font-semibold text-gray-700 mb-1.5">
                   Nombre completo <span className="text-red-500" aria-label="campo requerido">*</span>
                 </label>
@@ -175,8 +172,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              {/* Email */}
-              <div className="mb-5">
+              <div className="mb-4">
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
                   Email <span className="text-red-500" aria-label="campo requerido">*</span>
                 </label>
@@ -204,8 +200,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              {/* Teléfono */}
-              <div className="mb-5">
+              <div className="mb-4">
                 <label htmlFor="telefono" className="block text-sm font-semibold text-gray-700 mb-1.5">
                   Teléfono <span className="text-red-500" aria-label="campo requerido">*</span>
                 </label>
@@ -233,8 +228,7 @@ export default function ContactForm() {
                 )}
               </div>
 
-              {/* Seminario */}
-              <div className="mb-7">
+              <div className="mb-5">
                 <label htmlFor="seminario" className="block text-sm font-semibold text-gray-700 mb-1.5">
                   Seminario de interés
                 </label>
@@ -259,7 +253,6 @@ export default function ContactForm() {
                 </p>
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
                 className="w-full flex items-center justify-center gap-3 bg-brand-600 text-white font-bold py-4 px-6 rounded-xl hover:bg-brand-700 transition-all hover:shadow-lg hover:shadow-brand-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 text-base"

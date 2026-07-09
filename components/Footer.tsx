@@ -6,8 +6,8 @@ export default function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="bg-gray-900 text-white" aria-label="Pie de página">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid sm:grid-cols-3 gap-10 mb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="grid sm:grid-cols-3 gap-8 lg:gap-10 mb-6 lg:mb-10">
           <div>
             <div className="flex items-baseline gap-0.5 mb-3">
               <span className="text-2xl font-black tracking-tight text-brand-400">ALL</span>
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-gray-800 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
             © {year} All Ask Comunidad Educativa. Todos los derechos reservados.
           </p>
