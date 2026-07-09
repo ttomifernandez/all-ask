@@ -6,8 +6,8 @@ export default function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="bg-gray-900 text-white" aria-label="Pie de página">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid sm:grid-cols-3 gap-10 mb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid sm:grid-cols-3 gap-10 mb-8">
           <div>
             <div className="flex items-baseline gap-0.5 mb-3">
               <span className="text-2xl font-black tracking-tight text-brand-400">ALL</span>

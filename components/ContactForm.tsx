@@ -56,7 +56,7 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <section id="contacto" className="py-24 bg-brand-50" aria-labelledby="contact-heading">
+      <section id="contacto" className="py-14 bg-brand-50" aria-labelledby="contact-heading">
         <div className="max-w-xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -87,7 +87,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contacto" className="py-24 bg-brand-50" aria-labelledby="contact-heading">
+    <section id="contacto" className="py-14 bg-brand-50" aria-labelledby="contact-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Copy izquierdo */}

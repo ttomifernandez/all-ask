@@ -89,7 +89,7 @@ export default function Seminars() {
   return (
     <section
       id="seminarios"
-      className="py-24 bg-gray-50"
+      className="py-14 bg-gray-50"
       aria-labelledby="seminars-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +98,7 @@ export default function Seminars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
-          className="text-center mb-14"
+          className="text-center mb-8"
         >
           <span className="text-brand-600 text-sm font-semibold tracking-wide uppercase">
             Lo que podés aprender
@@ -173,7 +173,7 @@ export default function Seminars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center mt-8"
         >
           <p className="text-gray-500 text-sm mb-4">
             ¿No encontrás lo que buscás? Consultanos igual — podemos orientarte.
