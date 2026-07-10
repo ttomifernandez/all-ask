@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -28,7 +29,15 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-0.5" aria-label="All Ask Comunidad Educativa - inicio">
+          <a href="#inicio" className="flex items-center gap-2.5" aria-label="All Ask Comunidad Educativa - inicio">
+            <Image
+              src="/images/logo.webp"
+              alt="All Ask"
+              width={44}
+              height={44}
+              className="h-10 w-10 rounded-lg object-cover flex-shrink-0"
+              priority
+            />
             <span className="text-xl font-black tracking-tight text-brand-600">ALL</span>
             <span className="text-xl font-black tracking-tight text-brand-800">ASK</span>
           </a>
