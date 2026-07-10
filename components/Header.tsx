@@ -35,7 +35,7 @@ export default function Header() {
               alt="All Ask"
               width={44}
               height={44}
-              className="h-10 w-10 rounded-lg object-cover flex-shrink-0"
+              className="h-8 w-8 md:h-10 md:w-10 rounded-lg object-cover flex-shrink-0"
               priority
             />
             <span className="text-xl font-black tracking-tight text-brand-600">ALL</span>
